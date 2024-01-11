@@ -1,0 +1,336 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <style>@media screen and (min-aspect-ratio: 1920/1080) {    #application-canvas.fill-mode-KEEP_ASPECT {        width: auto;        height: 100%;        margin: 0 auto;    }}</style>
+    <title>Slice Master – Play it now at CoolmathGames.com</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://www.coolmathgames.com/sites/default/files/cmg-ads.js"></script><style>
+/* General Styles */
+.ads-popup {
+  font-family: "Helvetica Neue", "Arial Nova", Helvetica, Arial, sans-serif!important;
+}
+
+/* Hidden Elements */
+.ads-popup, .ad-container, #img-button-self {
+  display: none;
+}
+
+/* Ads Popup and Container Styles */
+.ads-popup, .ad-container {
+  position: relative;
+  z-index: 10;
+}
+
+.ads-popup {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index:111111;
+  background: #000000;
+  height: 100vh;
+  width: 100%;
+}
+
+.ad-container {
+  height: 100%;
+}
+
+.ad-container.flex-center {
+  display: flex !important;
+  justify-content: center;
+ // align-items: center;
+}
+
+.ad-container > div iframe {
+ // position:unset;
+}
+
+/* Preloader Styles */
+#afg_preloader {
+  display: flex;
+  justify-content: center;
+ // align-items: center;
+
+}
+
+/* Container123 Styles */
+#container123 {
+  width: 640px;
+  height: 480px;
+}
+
+/* Nested div inside ad-container */
+.ad-container > div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+/* Link Styles */
+#timer_div a, .timer-div a, .continue-lnk-container-rsection, .continue-link-yellow, #continue-link {
+  color: #000;
+}
+
+.continue-lnk-container-rsection, .continue-link-yellow {
+  font-size: 16px;
+
+}
+
+.timer-div {
+  margin-left: 5px;
+}
+
+/* Continue Container Styles */
+#continue-container, .continue-container {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  bottom: 0;
+  z-index: 10;
+  background: #ffe420;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  width:160px;
+  padding: 5px;
+  text-align:center;
+}
+
+
+.continue-container:hover {
+  border: 1px solid #ffe420;
+  background:#000;
+  color: #ffe420;
+}
+
+/* Continue Link Yellow Styles */
+.continue-link-yellow {
+  text-decoration: none;
+  padding: 4px;
+}
+
+.continue-link-yellow:active::before {
+  opacity: 1;
+  transform: translate(2px, 1px);
+  box-shadow: none;
+}
+
+/* AFG Container Styles */
+#afg_container {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+#afg_container .load-wrap {
+  width: 100%;
+  padding-top: 50px;
+  margin-bottom: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+#afg_container .load-wrap .loadingText {
+  display: block;
+  font-size: 20px;
+  margin-top: 46px;
+  color: #fff;
+  text-align: center;
+}
+
+#afg_container .load-wrap .circle {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  margin-left: 20px;
+  border-radius: 50%;
+  animation: afg_container_loading 1.6s infinite;
+  vertical-align: middle;
+}
+
+#afg_container .load-wrap .circle:first-child {
+  animation-delay: 0.1s;
+  background: #f8eb13;
+}
+
+#afg_container .load-wrap .circle:nth-child(2) {
+  animation-delay: 0.3s;
+  background: #29bffd;
+}
+
+#afg_container .load-wrap .circle:nth-child(3) {
+  animation-delay: 0.5s;
+  background: #f3733b;
+}
+
+#afg_container .load-wrap .circle:nth-child(4) {
+  animation-delay: 0.7s;
+  background: #65efbd;
+}
+
+/* Loading Animation */
+@keyframes afg_container_loading {
+  0%, 100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+/* Play Now Button Styles */
+.playNow {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.playWrapper {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  position: absolute;
+}
+
+#playAdsNowButton {
+  width: 88px;
+  height: 88px;
+  position: absolute;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  /* Correct the positioning */
+  left: 50%;
+  top: 50%;
+}
+
+#playAdsNowButton h4 {
+  color: #fff;
+}
+
+#playAdsNowButton::before {
+  animation: playPulse 2s infinite;
+  background: #fff;
+  border-radius: 50%;
+  content: "";
+  height: 118%;
+  left: -9%;
+  position: absolute;
+  top: -9%;
+  width: 118%;
+  z-index: -1;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Add drop shadow */
+}
+
+#playAdsNowButton::after {
+  background: #56eeb7;
+  border-radius: 50%;
+  content: "";
+  height: 100%;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+#playAdsNowButton svg{
+  height: 34px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: scaleX(1.1) translate(-50%, -50%);
+  width: 40px;
+  z-index: 2;
+}
+
+@keyframes playPulse {
+  0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+  }
+  50% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+</style><script src="https://cdn.intergi.com/prebid/cmg-prebid.js"></script><script src="https://cdn.intergi.com/cmg/cmg-headerbidding.js"></script><script src="https://imasdk.googleapis.com/js/sdkloader/ima3_debug.js"></script>
+    <script src="playcanvas-stable.min.js"></script>
+    <script src="__settings__.js"></script>
+<style type="text/css">body {
+    background-color: #2e6cf0;
+}
+
+#application-splash-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #2e6cf0;
+}
+
+#application-splash {
+    position: absolute;
+    top: calc(50% - 28px);
+    width: 264px;
+    left: calc(50% - 132px);
+}
+
+#img_pcLogoLoading  {
+transform: translate(-50%, -50%);
+position:absolute;
+left : 50%;
+top : 50%;
+width : 1px;
+height : 1px;
+z-index: 10;
+}
+
+#img_loadingbar {
+    position:absolute;
+    border-radius: 25px;
+    height: 4px;
+    width: 450px;
+    left : 0;
+    top : 0;
+    background-color:#1848a2;
+    opacity : 0.1;
+    z-index: 10;
+}
+
+#img_loadingbaroverlay {
+    border-radius: 25px;
+    width: 5%;
+    height: 100%;
+    background-color: #fffd33;
+}
+
+@media (max-width: 480px) {
+    #application-splash {
+        width: 170px;
+        left: calc(50% - 85px);
+    }
+}</style><script src="__game-scripts.js"></script></head>
+<body><div class="ads-popup"><!--Start of Preloader call --><div id="afg_preloader"><div id="container123"><div id="videoplayer"></div><div id="adcontainer" class="ad-container"></div></div></div><!-- Continue to Game container with timer --><div id="continue-container" style="display:none"><div id="img-button-container"><div id="img-button-self" class="img-button"></div><div class="continue-lnk-container-rsection"><span id="continue-link">Continue in </span><span id="timer_div" class="timer-div">8</span></div></div></div><div id="afg_container"><div class="load-wrap"><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><h3 class="loadingText">Just a moment while your content loads</h3></div></div></div>
+    <script src="__modules__.js"></script>
+    <script src="__start__.js"></script><canvas id="application-canvas" tabindex="0" width="2160" height="1368" class="fill-mode-FILL_WINDOW" style="-webkit-user-select: none; width: 1080px; height: 684px;"></canvas><script src="files/assets/139011543/1/ammo.wasm.js"></script>
+    <script src="__loading__.js"></script>
+
+
+</body>
